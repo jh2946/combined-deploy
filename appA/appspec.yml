@@ -1,0 +1,17 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /
+hooks:
+  ApplicationStop:
+    - location: applicationstop.sh
+      timeout: 15
+  BeforeInstall:
+    - location: beforeinstall.sh
+      timeout: 15
+      runas: root
+  ApplicationStart:
+    - location: applicationstart.sh
+      timeout: 15
+      runas: root
